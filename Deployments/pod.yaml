@@ -10,7 +10,7 @@ spec:
       image: k8s.gcr.io/e2e-test-images/busybox:1.29
       command:
         - "/bin/sleep"
-        - "10000"
+        - "100000"
       volumeMounts:
       - name: secrets-store01-inline
         mountPath: "/mnt/secrets-store"
