@@ -2,7 +2,7 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: busybox-secrets-store
+  name: busybox-secrets-storei
   namespace: kvak1
 spec:
   containers:
