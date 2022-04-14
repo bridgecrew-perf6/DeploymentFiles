@@ -1,0 +1,55 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "ConnectedClusterName": {
+            "defaultValue": "dms-arc-ase-001",
+            "type": "String",
+            "metadata": {
+                "description": "The Connected Cluster name."
+            }
+        },
+        "ExtensionInstanceName": {
+            "defaultValue": "dms-akvsecretsprovider-ase-001",
+            "type": "String",
+            "metadata": {
+                "description": "The extension instance name."
+            }
+        },
+        "ExtensionVersion": {
+            "defaultValue": "1.0.1",
+            "type": "String",
+            "metadata": {
+                "description": "The version of the extension type."
+            }
+        },
+        "ExtensionType": {
+            "defaultValue": "Microsoft.AzureKeyVaultSecretsProvider",
+            "type": "String",
+            "metadata": {
+                "description": "The extension type."
+            }
+        },
+        "ReleaseTrain": {
+            "defaultValue": "preview",
+            "type": "String",
+            "metadata": {
+                "description": "The release train."
+            }
+        }
+    },
+    "functions": [],
+    "resources": [
+        {
+            "type": "Microsoft.KubernetesConfiguration/extensions",
+            "apiVersion": "2021-09-01",
+            "name": "[parameters('ExtensionInstanceName')]",
+            "properties": {
+                "extensionType": "[parameters('ExtensionType')]",
+                "releaseTrain": "[parameters('ReleaseTrain')]",
+                "version": "[parameters('ExtensionVersion')]"
+            },
+            "scope": "[concat('Microsoft.Kubernetes/connectedClusters/', parameters('ConnectedClusterName'))]"
+        }
+    ]
+}
