@@ -4,7 +4,7 @@ metadata:
   labels:
     app: frontend
   name: frontend
-  namespace: ns1
+  namespace: kvtest
 spec:
   replicas: 2
   selector:
