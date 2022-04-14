@@ -4,9 +4,9 @@ metadata:
   labels:
     app: frontend
   name: frontend
-  namespace: kvtest
+  namespace: kvak1
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: frontend
